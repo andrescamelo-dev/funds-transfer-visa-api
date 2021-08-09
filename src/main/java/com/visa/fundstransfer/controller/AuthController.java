@@ -32,11 +32,17 @@ public class AuthController {
 
     @ApiOperation(value = "Operation to authenticate a security user of API Rest", response = ResponseEntity.class)
     @RequestMapping(value = "/authenticate", method = RequestMethod.POST)
-    public ResponseEntity<Object> createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest) {
+    public ResponseEntity<Object> createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest)
+            throws Exception {
 
-        authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authenticationRequest.getUsername(),
-                authenticationRequest.getPassword()));
+        try {
+            authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
+                    authenticationRequest.getUsername(), authenticationRequest.getPassword()));
+        } catch (BadCredentialsException e) {
+            throw new Exception("Incorrect username or password");
+        }
         final UserDetails userDetails = userDetailsService.loadUserByUsername(authenticationRequest.getUsername());
+
         final String jwt = jwtTokenUtil.generateToken(userDetails);
 
         return ResponseEntity.ok(new AuthenticationResponse(jwt));
