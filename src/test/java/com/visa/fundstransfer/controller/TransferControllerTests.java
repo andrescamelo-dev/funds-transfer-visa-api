@@ -71,7 +71,7 @@ class TransferControllerTests {
                 transfer.setDescription("");
                 transfer.setOriginAccount(0);
 
-                mvc.perform(MockMvcRequestBuilders.post("/1.0.0/tranferFunds").contentType(MediaType.APPLICATION_JSON)
+                mvc.perform(MockMvcRequestBuilders.post("/1.0.0/transferFunds").contentType(MediaType.APPLICATION_JSON)
                                 .header("Authorization", "Bearer ".concat(auth.getJwt()))
                                 .content(objectMapper.writeValueAsString(transfer))).andExpect(status().isOk())
                                 .andExpect(jsonPath("$.errorCode").exists()).andExpect(jsonPath("$.errors").exists())
@@ -88,7 +88,7 @@ class TransferControllerTests {
                 transfer.setOriginAccount(345622);
                 transfer.setDestinationAccount(456337);
 
-                mvc.perform(MockMvcRequestBuilders.post("/1.0.0/tranferFunds").contentType(MediaType.APPLICATION_JSON)
+                mvc.perform(MockMvcRequestBuilders.post("/1.0.0/transferFunds").contentType(MediaType.APPLICATION_JSON)
                                 .header("Authorization", "Bearer ".concat(auth.getJwt()))
                                 .content(objectMapper.writeValueAsString(transfer))).andExpect(status().isOk())
                                 .andExpect(jsonPath("$.errorCode").exists()).andExpect(jsonPath("$.errors").exists())
@@ -105,25 +105,25 @@ class TransferControllerTests {
                 transfer.setOriginAccount(345622);
                 transfer.setDestinationAccount(456337);
 
-                mvc.perform(MockMvcRequestBuilders.post("/1.0.0/tranferFunds").contentType(MediaType.APPLICATION_JSON)
+                mvc.perform(MockMvcRequestBuilders.post("/1.0.0/transferFunds").contentType(MediaType.APPLICATION_JSON)
                                 .header("Authorization", "Bearer ".concat(auth.getJwt()))
                                 .content(objectMapper.writeValueAsString(transfer))).andExpect(status().isOk())
                                 .andExpect(jsonPath("$.id").exists()).andExpect(jsonPath("$.taxCollected").exists())
                                 .andExpect(jsonPath("$.cad").exists()).andReturn();
 
-                mvc.perform(MockMvcRequestBuilders.post("/1.0.0/tranferFunds").contentType(MediaType.APPLICATION_JSON)
+                mvc.perform(MockMvcRequestBuilders.post("/1.0.0/transferFunds").contentType(MediaType.APPLICATION_JSON)
                                 .header("Authorization", "Bearer ".concat(auth.getJwt()))
                                 .content(objectMapper.writeValueAsString(transfer))).andExpect(status().isOk())
                                 .andExpect(jsonPath("$.id").exists()).andExpect(jsonPath("$.taxCollected").exists())
                                 .andExpect(jsonPath("$.cad").exists()).andReturn();
 
-                mvc.perform(MockMvcRequestBuilders.post("/1.0.0/tranferFunds").contentType(MediaType.APPLICATION_JSON)
+                mvc.perform(MockMvcRequestBuilders.post("/1.0.0/transferFunds").contentType(MediaType.APPLICATION_JSON)
                                 .header("Authorization", "Bearer ".concat(auth.getJwt()))
                                 .content(objectMapper.writeValueAsString(transfer))).andExpect(status().isOk())
                                 .andExpect(jsonPath("$.id").exists()).andExpect(jsonPath("$.taxCollected").exists())
                                 .andExpect(jsonPath("$.cad").exists()).andReturn();
 
-                mvc.perform(MockMvcRequestBuilders.post("/1.0.0/tranferFunds").contentType(MediaType.APPLICATION_JSON)
+                mvc.perform(MockMvcRequestBuilders.post("/1.0.0/transferFunds").contentType(MediaType.APPLICATION_JSON)
                                 .header("Authorization", "Bearer ".concat(auth.getJwt()))
                                 .content(objectMapper.writeValueAsString(transfer))).andExpect(status().isOk())
                                 .andExpect(jsonPath("$.errorCode").exists()).andExpect(jsonPath("$.errors").exists())
@@ -140,7 +140,7 @@ class TransferControllerTests {
                 transfer.setOriginAccount(345622);
                 transfer.setDestinationAccount(456337);
 
-                mvc.perform(MockMvcRequestBuilders.post("/1.0.0/tranferFunds").contentType(MediaType.APPLICATION_JSON)
+                mvc.perform(MockMvcRequestBuilders.post("/1.0.0/transferFunds").contentType(MediaType.APPLICATION_JSON)
                                 .header("Authorization", "Bearer ".concat(auth.getJwt()))
                                 .content(objectMapper.writeValueAsString(transfer))).andExpect(status().isOk())
                                 .andExpect(jsonPath("$.id").exists()).andExpect(jsonPath("$.taxCollected").exists())
@@ -157,7 +157,7 @@ class TransferControllerTests {
                 transfer.setOriginAccount(345622);
                 transfer.setDestinationAccount(456337);
 
-                mvc.perform(MockMvcRequestBuilders.post("/1.0.0/tranferFunds").contentType(MediaType.APPLICATION_JSON)
+                mvc.perform(MockMvcRequestBuilders.post("/1.0.0/transferFunds").contentType(MediaType.APPLICATION_JSON)
                                 .header("Authorization", "Bearer ".concat(auth.getJwt()))
                                 .content(objectMapper.writeValueAsString(transfer))).andExpect(status().isOk())
                                 .andExpect(jsonPath("$.id").exists()).andExpect(jsonPath("$.taxCollected").exists())

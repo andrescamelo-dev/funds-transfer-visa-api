@@ -25,10 +25,10 @@ public class TransferController {
     TransferService transferService;
 
     @ApiOperation(value = "Operation to create a funds transfer", response = ResponseEntity.class)
-    @PostMapping(value = "/tranferFunds", produces = { MediaType.APPLICATION_JSON_VALUE })
+    @PostMapping(value = "/transferFunds", produces = { MediaType.APPLICATION_JSON_VALUE })
     @ResponseStatus(value = HttpStatus.OK)
     @ResponseBody
-    public Object tranferFunds(@RequestBody TransferDTO transfer) {
+    public Object transferFunds(@RequestBody TransferDTO transfer) {
         return transferService.transferFunds(transfer);
     }
 

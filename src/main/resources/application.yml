@@ -27,7 +27,7 @@ server:
 
 logging:
   file:
-    path:  ./tmp/logs/fundstransfer.log
+    name: fundstransfer.log
   level:
     root: INFO
 
