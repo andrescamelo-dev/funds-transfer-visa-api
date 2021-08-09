@@ -21,8 +21,7 @@ public class ApplicationConfig {
       public Docket productApi() {
           return new Docket(DocumentationType.SWAGGER_2)
         .select()
-        .apis(RequestHandlerSelectors.basePackage("com.visa.fundstransfer"))
-               .paths(regex(FundsTransferVisaApiApplication.PATH_SERVICE.concat(".*")))
+        .apis(RequestHandlerSelectors.basePackage("com.visa.fundstransfer.controller"))
                .build().apiInfo(apiEndPointsInfo());
       }
             

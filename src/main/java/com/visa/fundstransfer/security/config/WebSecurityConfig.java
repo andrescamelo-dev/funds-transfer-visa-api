@@ -39,8 +39,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity httpSecurity) throws Exception {
-		httpSecurity.csrf().ignoringAntMatchers("/h2-console/**").disable()
-				.authorizeRequests().antMatchers("/authenticate","/h2-console/**","**/chromewebdata/**").permitAll().
+		httpSecurity.csrf().disable()
+				.authorizeRequests().antMatchers("/authenticate","/h2-console/**","/transfer-service/**","/v2/api-docs",
+				"/configuration/ui",
+				"/swagger-resources/**",
+				"/configuration/security",
+				"/swagger-ui.html",
+				"/webjars/**").permitAll().
 						anyRequest().authenticated().and().
 						exceptionHandling().and().sessionManagement()
 				.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
