@@ -1,0 +1,49 @@
+spring:
+  application:
+    name: fundstransfer
+  datasource:
+    url: jdbc:h2:mem:fundstransfer
+    driverClassName: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+    defer-datasource-initialization: false
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+      settings:
+          web-allow-others: true
+
+
+server:
+  port: ${PORT:8080}
+  servlet:
+    context-path: /transfer-service
+
+logging:
+  file:
+    path:  ./tmp/logs/fundstransfer.log
+  level:
+    root: INFO
+
+funds-transfer:
+  account:
+    maximum-daily-transfers: ${MAX_DAILY_TRANSFERS:3}
+
+  rate-exchange:
+    uri: ${URI_RATE_EXCHAGE:http://api.exchangeratesapi.io/v1/latest}
+    access-key: ${ACCESS_KEY_RATE_EXCHAGE:1c642c881d8cd8297a29c08f50bd864d}
+    currency:
+      locale: ${CURRENCY_LOCALE:CAD}
+      exchangeable: ${CURRENCY_EXCHANGEABLE:USD} 
+
+  tax:
+    base-amount: ${TAX_BASE_AMOUNT:100.0}
+    less-percentage: ${TAX_LESS_PERCENTAGE:0.2} 
+    greater-percentage: ${TAX_GREATER_PERCENTAGE_E:0.5}
+
